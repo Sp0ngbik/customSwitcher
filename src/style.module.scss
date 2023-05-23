@@ -1,15 +1,27 @@
 .switcherBlockBody {
-  background-color: aqua;
+  width: 400px;
+  height: 80px;
+  top: 50%;
+  border-radius: 100px;
+  left: 50%;
+  animation: 1s blockBody forwards;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.switcherDarkBody {
   width: 400px;
   height: 80px;
   top: 50%;
   border-radius: 100px;
   left: 50%;
   position: absolute;
+  animation: 1s blockDarkBody forwards;
   transform: translate(-50%, -50%);
 }
-.switherWay {
-  width: 350px;
+
+.switcherWay {
+  width: 370px;
   z-index: 2;
   height: 50px;
   border-radius: 100px;
@@ -28,31 +40,17 @@
   cursor: pointer;
 }
 .startElement {
-  width: 20px;
-  height: 20px;
-  background-color: red;
+  width: 35px;
+  height: 35px;
   top: 50%;
   border-radius: 100px;
-  left: 5%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-}
-.endElement {
-  // display: ovnone;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  top: 50%;
-  border-radius: 100px;
-  right: 0;
-  animation: 1s endElement forwards;
+  animation: 1s firstStart forwards;
   transform: translate(-50%, -50%);
   position: absolute;
 }
 .startMoveStartElement {
-  width: 20px;
-  height: 20px;
-  background-color: red;
+  width: 35px;
+  height: 35px;
   top: 50%;
   border-radius: 100px;
   left: 5%;
@@ -60,31 +58,49 @@
   position: absolute;
   animation: 1s startElement forwards;
 }
-.endMoveEndElement {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  top: 50%;
-  border-radius: 100px;
-  left: 5%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  animation: 1s endElement forwards;
+
+@keyframes firstStart {
+  0% {
+    background-image: url("./img/sun.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 93%;
+  }
+  100% {
+    background-image: url("./img/moon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 5%;
+  }
 }
 @keyframes startElement {
   0% {
+    background-image: url("./img/moon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
     left: 5%;
   }
   100% {
     left: 93%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("./img/sun.png");
   }
 }
 
-@keyframes endElement {
+@keyframes blockBody {
   0% {
-    left: 93%;
+    background-color: red;
   }
   100% {
-    left: 5%;
+    background-color: purple;
+  }
+}
+@keyframes blockDarkBody {
+  0% {
+    background-color: purple;
+  }
+  100% {
+    background-color: red;
   }
 }
